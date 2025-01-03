@@ -1,10 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Button, Image, StyleSheet, Text, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 function MushroomScreen({route}: any) {
-    const navigation = useNavigation()
+    const navigation = useNavigation();
+    function back(navigation: any) {
+        return navigation.navigate('Main');
+    }
     return (
         <View style={[{flex: 1, backgroundColor: Colors.darker}, styles.container]}>
             <Image
@@ -17,6 +20,12 @@ function MushroomScreen({route}: any) {
             <Text style={styles.textNormal}>
                 insert parameters here
             </Text>
+
+            <Button
+            title='Back to menu'
+            onPress={back}
+            color='gray'
+            />
         </View>
     );
 }

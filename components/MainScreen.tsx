@@ -25,17 +25,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const MainScreen = () => {
     const navigation = useNavigation();
-    const isDarkMode = useColorScheme() === 'dark';
-
-    // const backgroundStyle = {
-    //   backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    // };
-    const backgroundStyle = {
-      backgroundColor: Colors.darker
-    };
-    
-    const [imgUri, setImgUri] = useState<string | undefined>(undefined);
-  
+      
     async function selectImage(opt: Int32, navigation: any) {
       let output = null
       if (opt == 0) {
@@ -47,7 +37,6 @@ const MainScreen = () => {
         Alert.alert("Please give shroomsniffer camera permissions")
       }
       if (!output.didCancel && output.assets != null) {
-        //setImgUri(output.assets[0].uri)
         return navigation.navigate('Mush', {uri: output.assets[0].uri})
       }
     }
@@ -78,11 +67,6 @@ const MainScreen = () => {
           onPress={async () => {selectImage(1, navigation)}}
           color='gray'
         />
-  
-        {/* <Image
-          source={{uri: imgUri}}
-          style={{width: 128, height: 128, marginTop: 16}}
-        /> */}
       </View>
     );
 }
