@@ -23,7 +23,7 @@ function MushroomScreen({route}: any) {
 
             <Button
             title='Back to menu'
-            onPress={back}
+            onPress={() => {back(navigation)}}
             color='gray'
             />
         </View>

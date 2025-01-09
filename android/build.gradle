@@ -17,5 +17,7 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
     }
 }
-
+plugins {
+    id("com.chaquo.python") version "16.0.0" apply false
+}
 apply plugin: "com.facebook.react.rootproject"
