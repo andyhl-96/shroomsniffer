@@ -100,9 +100,9 @@ const MainScreen = () => {
             color='gray'
             /> */}
 
-            <Text style={styles.textNormal}>
+            {/* <Text style={styles.textNormal}>
                 {testStr}
-            </Text>
+            </Text> */}
 
         </View>
     );
