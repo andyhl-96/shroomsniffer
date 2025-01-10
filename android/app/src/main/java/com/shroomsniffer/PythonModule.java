@@ -5,6 +5,9 @@ import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import android.util.Log;
+
+import java.lang.annotation.Repeatable;
+
 import com.chaquo.python.*;
 
 public class PythonModule extends ReactContextBaseJavaModule {
@@ -18,8 +21,17 @@ public class PythonModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public String test() {
-        //Log.d("Shit");
-        return "shit";
+        return "test text";
+    }
+
+    @ReactMethod
+    public String infer(String img64) {
+        Python py = Python.getInstance();
+        PyObject bi = py.getBuiltins();
+        PyObject inf = py.getModule("inference");
+        PyObject out = inf.callAttr("load_and_run", img64);
+        //PyObject out = inf.callAttr("test");
+        return out.toString();
     }
 }
 

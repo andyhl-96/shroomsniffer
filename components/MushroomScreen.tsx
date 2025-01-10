@@ -18,7 +18,7 @@ function MushroomScreen({route}: any) {
                 This smells like...
             </Text>
             <Text style={styles.textNormal}>
-                insert parameters here
+                {route.params.pred}
             </Text>
 
             <Button

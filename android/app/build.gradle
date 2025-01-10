@@ -127,15 +127,21 @@ android {
 chaquopy {
     defaultConfig {
         version = "3.8"
-        // pip {
-        //     install("tensorflow")
-        // }
+        pip {
+            install("tflite-runtime")
+            install("Pillow")
+            install("numpy")
+        }
     }
     productFlavors {
         getByName("py38") { version = "3.8" }
         //getByName("py311") { version = "3.11" }
     }
-    sourceSets { }
+    sourceSets {
+        getByName("main") {
+            srcDir("src/main/python")
+        }
+    }
 }
 
 dependencies {
